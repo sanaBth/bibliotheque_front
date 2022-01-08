@@ -23,6 +23,7 @@ export class RegisteradminComponent implements OnInit {
     this.controls = this.userForm.controls
   }
   register() {
+    console.log(this.userForm.value);
     this.authService.registerAdmin(this.userForm.value).subscribe((res) => {
       if (res) {
         this.router.navigate(['/index']);
