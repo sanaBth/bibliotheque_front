@@ -1,1 +1,93 @@
-<p>addusers works!</p>
+<app-header></app-header>
+
+<div class="container">
+  <form [formGroup]="postForm">
+    <div class="row mb-5 mt-3">
+      <div class="col-md-12"><h1>Ajouter utilisateur</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="col-auto">
+          <label for="titre" class="form-label">Nom</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Nom utilisateur"
+            id="myInput"
+            formControlName="name"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.name &&
+              postForm.controls.name.invalid &&
+              postForm.controls.name.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <label for="description" class="form-label">Adresse mail</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="email..."
+            id="myInput"
+            formControlName="email"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.email &&
+              postForm.controls.email.invalid &&
+              postForm.controls.email.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="col-auto">
+          <label for="auteur" class="form-label">Mot de passe</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Mot de passe..."
+            id="myInput"
+            formControlName="password"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.password &&
+              postForm.controls.password.invalid &&
+              postForm.controls.password.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="col-auto">
+          <label for="idform" class="form-label"
+            >Choisir type utilisateur</label
+          >
+          <select id="idform" class="form-control" formControlName="type">
+            <option>Normal</option>
+            <option>Abonné</option>
+          </select>
+        </div>
+        <p class="text-center mt-4">
+          <button
+            type="submit"
+            class="text-center btn btn-primary"
+            [disabled]="!postForm.valid"
+            (click)="newElement()"
+          >
+            Ajouter utilisateur
+          </button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
