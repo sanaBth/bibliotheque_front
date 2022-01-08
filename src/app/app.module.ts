@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { RegisteradminComponent } from './page/registeradmin/registeradmin.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ToastrModule } from 'ngx-toastr';
     AddusersComponent,
     AddcategorieComponent,
     AddlivreComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisteradminComponent
   ],
   imports: [
     BrowserModule,

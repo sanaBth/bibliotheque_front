@@ -9,11 +9,12 @@ import { HomeComponent } from './page/home/home.component';
 import { LivreComponent } from './page/livre/livre.component';
 import { LoginComponent } from './page/login/login.component';
 import { PagenotfoundComponent } from './page/pagenotfound/pagenotfound.component';
+import { RegisteradminComponent } from './page/registeradmin/registeradmin.component';
 import { UsersComponent } from './page/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-
+  { path: 'admin', component: RegisteradminComponent },
   { path: 'index', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UsersComponent },

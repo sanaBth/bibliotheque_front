@@ -22,4 +22,8 @@ export class AuthService {
   register(user: User) {
     return this.httpClient.post(`${this.api_url}/apiuser/register`, user);
   }
+  //register as admin
+  registerAdmin(user: User) {
+    return this.httpClient.post(`${this.api_url}/apiuser/registeradmin`, user);
+  }
 }
