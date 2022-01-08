@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from './guard/user.guard';
 import { AddcategorieComponent } from './page/addcategorie/addcategorie.component';
 import { AddlivreComponent } from './page/addlivre/addlivre.component';
 import { AddusersComponent } from './page/addusers/addusers.component';
@@ -16,9 +17,9 @@ const routes: Routes = [
   { path: 'index', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UsersComponent },
-  { path: 'adduser', component: AddusersComponent },
-  { path: 'addlivre', component: AddlivreComponent },
-  { path: 'addcategorie', component: AddcategorieComponent },
+  { path: 'adduser', component: AddusersComponent, canActivate: [UserGuard] },
+  { path: 'addlivre', component: AddlivreComponent, canActivate: [UserGuard] },
+  { path: 'addcategorie', component: AddcategorieComponent, canActivate: [UserGuard] },
   { path: 'livre', component: LivreComponent },
   { path: 'categorie', component: CategorieComponent },
   { path: '**', component: PagenotfoundComponent },
