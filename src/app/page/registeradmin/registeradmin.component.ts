@@ -26,7 +26,7 @@ export class RegisteradminComponent implements OnInit {
     console.log(this.userForm.value);
     this.authService.registerAdmin(this.userForm.value).subscribe((res) => {
       if (res) {
-        this.router.navigate(['/index']);
+        this.router.navigate(['/login']);
       }
     })
   }
