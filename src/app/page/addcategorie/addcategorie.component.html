@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<div class="container">
+  <form [formGroup]="postForm">
+    <div class="row mb-5 mt-3">
+      <div class="col-md-12"><h1>Ajouter catégorie</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="col-auto">
+          <label for="nom" class="form-label">Nom catégorie</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Nom catégorie"
+            id="myInput"
+            formControlName="nom"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.nom &&
+              postForm.controls.nom.invalid &&
+              postForm.controls.nom.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+
+        <p class="mt-5">
+          <button
+            type="submit"
+            class="text-center btn btn-primary"
+            [disabled]="!postForm.valid"
+            (click)="newElement()"
+          >
+            Ajouter catégorie
+          </button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<div class="container">
+  <form [formGroup]="postForm" enctype="multipart/form-data">
+    <div class="row mb-5 mt-3">
+      <div class="col-md-12"><h1>Ajouter livre</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="col-auto">
+          <label for="titre" class="form-label">Titre</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Titre de livre"
+            id="myInput"
+            formControlName="titre"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.titre &&
+              postForm.controls.titre.invalid &&
+              postForm.controls.titre.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="col-auto">
+          <label for="fileselect" class="form-label"
+            >Selectionner fichier</label
+          >
+          <input
+            class="form-control"
+            formControlName="contenue"
+            name="contenue"
+            value="contenue"
+            type="file"
+            id="fileselect"
+            (change)="selectFile($event)"
+          />
+        </div>
+        <div class="col-auto">
+          <label for="description" class="form-label">Description livre</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Description..."
+            id="myInput"
+            formControlName="description"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.description &&
+              postForm.controls.description.invalid &&
+              postForm.controls.description.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="col-auto">
+          <label for="auteur" class="form-label">Auteur</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Auteur du livre..."
+            id="myInput"
+            formControlName="auteur"
+          />
+          <div
+            class="text-info"
+            *ngIf="
+              postForm.controls.auteur &&
+              postForm.controls.auteur.invalid &&
+              postForm.controls.auteur.touched
+            "
+          >
+            Ce champs est obligatoire
+          </div>
+        </div>
+        <div class="col-auto">
+          <label for="idform" class="form-label">Choisir catégorie</label>
+          <select id="idform" class="form-control" (change)="selectId($event)">
+            <option>Liste des catégories</option>
+            <option *ngFor="let v of listcategories" value="{{ v._id }}">
+              {{ v.nomcategorie }}
+            </option>
+          </select>
+        </div>
+        <p class="text-center mt-4">
+          <button
+            type="submit"
+            class="text-center btn btn-primary"
+            [disabled]="!postForm.valid"
+            (click)="newElement()"
+          >
+            Ajouter livre
+          </button>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
