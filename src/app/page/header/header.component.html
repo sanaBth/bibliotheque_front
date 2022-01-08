@@ -36,6 +36,38 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item" *ngIf="userconnected; else boutonConnecter">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a
+                  href="#"
+                  class="text-white"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Bonjour {{ userconnected }}</a
+                >
+                <ul class="dropdown-menu">
+                  <li>
+                    <a (click)="logout()" type="submit" class="dropdown-item"
+                      >Déconnecion</a
+                    >
+                  </li>
+                </ul>
+                <div
+                  ngbDropdownMenu
+                  aria-labelledby="dropdownBasic1"
+                  class="dropdown-primary"
+                >
+                  <a class="dropdown-item" type="submit" (click)="logout()"
+                    >Déconnexion</a
+                  >
+                </div>
+              </div>
+            </li>
+            <ng-template #boutonConnecter>
+              <li class="nav-item" class="text-white">
+                <a routerLink="/login" class="text-white">Connexion</a>
+              </li>
+            </ng-template>
           </ul>
         </div>
       </div>

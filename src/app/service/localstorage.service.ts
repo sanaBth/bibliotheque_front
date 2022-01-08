@@ -15,4 +15,12 @@ export class LocalstorageService {
   getUseconnected() {
     return JSON.parse(localStorage.getItem('userconnected') || 'null');
   }
+
+  public logout() {
+    localStorage.removeItem('userconnected')
+    localStorage.removeItem('type')
+    localStorage.removeItem('email')
+    localStorage.removeItem('userid')
+  }
+
 }
